@@ -1,5 +1,8 @@
 import math
-from . import core
+#from . import core
+# Jiangtao Luo. 9 Feb 2020
+import core
+
 from gi.repository import Pango
 from gi.repository import Gtk
 from gi.repository import GooCanvas

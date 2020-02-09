@@ -131,12 +131,16 @@ def load_plugins():
         try:
             plugin_module = __import__(name)
         except ImportError as ex:
-            print("Could not load plugin %r: %s" % (filename, str(ex)), file=sys.stderr)
+            #print("Could not load plugin %r: %s" % (filename, str(ex)), file=sys.stderr)
+            # Jiangtao Luo. 9 Feb 2020
+            print("Could not load plugin %r: %s" % (filename, str(ex)), sys.stderr)
             continue
         try:
             plugin_func = plugin_module.register
         except AttributeError:
-            print("Plugin %r has no 'register' function" % name, file=sys.stderr)
+            #print("Plugin %r has no 'register' function" % name, file=sys.stderr)
+            # Jiangtao Luo. 9 Feb 2020
+            print("Plugin %r has no 'register' function" % name, sys.stderr)
         else:
             #print("Plugin %r registered" % name, file=sys.stderr)
             register_plugin(plugin_func, name, plugin_module)
